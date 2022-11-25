@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Todo from './Todo';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
-    <h1>Simply Todo</h1>
+    todos.map((todo) => {
+      return <Todo key={todo} todo={todo} />
+    })
   )
 }
 
