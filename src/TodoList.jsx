@@ -3,9 +3,11 @@ import Todo from './Todo';
 
 const TodoList = ({ todos }) => {
   return (
-    todos.map((todo) => {
-      return <Todo key={todo} todo={todo} />
-    })
+    <ul className='block'>
+      {todos.map((todo) => {
+        return <Todo key={todo} todo={todo} />
+      })}
+    </ul>
   )
 }
 

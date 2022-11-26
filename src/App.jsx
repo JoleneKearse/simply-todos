@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+import AddItem from './AddItem';
 import TodoList from './TodoList';
+import Clear from './Clear';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -15,12 +17,12 @@ function App() {
   }
 
   return (
-    <>
+    <div className='block'>
+      <h1>Simply Todos</h1>
+      <AddItem handleAddTodo={handleAddTodo} todoNameRef={todoNameRef} />
       <TodoList todos={todos} />
-      <input ref={todoNameRef} type="text" />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Completed</button>
-    </>
+      <Clear todos={todos} />
+    </div>
   )
 }
 
