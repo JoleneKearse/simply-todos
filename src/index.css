@@ -67,6 +67,13 @@ li {
   box-shadow: .1rem .15rem .25rem #42B7A899;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+}
+
 /* ********* LAYOUT ********* */
 .block {
   display: block;
@@ -96,13 +103,25 @@ button {
   font-family: inherit;
 }
 
+input[type="text"] {
+  background-color: #42B7A8;
+  min-width: 40ch;
+}
+
 label { 
   padding: .6rem 1.2rem;
 }
 
-input[type="text"] {
-  background-color: #42B7A8;
-  min-width: 40ch;
+input[type="checkbox"] {
+  margin-right: 1em;
+  background-color: #2C9098;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
 }
 
 button {
