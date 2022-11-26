@@ -124,6 +124,10 @@ input[type="checkbox"] {
   transform: translateY(-0.075em);
 }
 
+input[type="checkbox"]:checked {
+  background-color: #B3FFAB;
+}
+
 button {
   background-color: #2C9098;
   cursor: pointer;

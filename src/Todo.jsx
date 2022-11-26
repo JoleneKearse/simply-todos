@@ -1,10 +1,14 @@
 import React from 'react'
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleTodo }) => {
+  const handleTodoClick = () => {
+    toggleTodo(todo.id);
+  }
+
   return (
     <div className='todolist'>
       <li>
-        <input type="checkbox" checked={todo.complete} />
+        <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
         {todo.name}
       </li>
     </div>
