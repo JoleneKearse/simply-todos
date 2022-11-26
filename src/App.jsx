@@ -38,6 +38,20 @@ function App() {
     todoNameRef.current.value = null;
   }
 
+  const handleEnterTodo = (e) => {
+    if (e.key != 'Enter') return
+    if (e.key == 'Enter') {
+      const name = todoNameRef.current.value;
+      if (name === '') return
+      setTodos(prevTodos => {
+        return [...prevTodos, { id: uuidv4(), name: name, complete: false }];
+      })
+      // reset input field
+      todoNameRef.current.value = null;
+    }
+
+  }
+
   const handleClearTodos = () => {
     const newTodos = todos.filter(todo => !todo.complete);
     setTodos(newTodos);
@@ -46,7 +60,7 @@ function App() {
   return (
     <div className='block'>
       <h1>Simply Todos</h1>
-      <AddItem handleAddTodo={handleAddTodo} todoNameRef={todoNameRef} />
+      <AddItem handleAddTodo={handleAddTodo} handleEnterTodo={handleEnterTodo} todoNameRef={todoNameRef} />
       <TodoList todos={todos} toggleTodo={toggleTodo} />
       <Clear todos={todos} handleClearTodos={handleClearTodos} />
     </div>

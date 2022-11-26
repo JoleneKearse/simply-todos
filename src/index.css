@@ -17,6 +17,12 @@
 
 /* ********* RESET ********* */
 
+html {
+  max-width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   display: block;
   margin: 0;
@@ -85,6 +91,7 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   gap: .75em;
+  flex-wrap: wrap;
 }
 
 .todolist {
@@ -126,7 +133,6 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
   background-color: #B3FFAB;
-  content: 'f058';
 }
 
 button {
@@ -150,5 +156,12 @@ button:focus {
   outline: .1em solid #B3FFAB;
 }
 
+/* ********* MEDIA QUERIES ********* */
 
-
+@media (max-width: 420px) {
+  input[type="text"] {
+    max-width: 15ch;
+    margin: 0 .5em;
+    padding: 0.4em 10%;
+  }
+}
