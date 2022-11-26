@@ -7,13 +7,13 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 const KEY_ID = 'todoslist';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(KEY_ID)) || []);
   const todoNameRef = useRef();
 
   // to load on refresh
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(KEY_ID));
-    if (storedTodos) setTodos(storedTodos);
+    setTodos(storedTodos);
   }, []);
 
   // to save changes
@@ -38,14 +38,19 @@ function App() {
     todoNameRef.current.value = null;
   }
 
+  const handleClearTodos = () => {
+    const newTodos = todos.filter(todo => !todo.complete);
+    setTodos(newTodos);
+  }
+
   return (
     <div className='block'>
       <h1>Simply Todos</h1>
       <AddItem handleAddTodo={handleAddTodo} todoNameRef={todoNameRef} />
       <TodoList todos={todos} toggleTodo={toggleTodo} />
-      <Clear todos={todos} />
+      <Clear todos={todos} handleClearTodos={handleClearTodos} />
     </div>
   )
 }
 
-export default App
+export default App;

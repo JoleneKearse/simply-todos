@@ -11,4 +11,4 @@ const TodoList = ({ todos, toggleTodo }) => {
   )
 }
 
-export default TodoList
+export default TodoList;
