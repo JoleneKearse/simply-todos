@@ -10,7 +10,8 @@ function App() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(KEY_ID)) || []);
   // variable to hold ref to input
   const todoNameRef = useRef();
-
+  // hold item to be dragged
+  const dragTodo = useRef();
 
   // to load on refresh
   useEffect(() => {
@@ -22,6 +23,14 @@ function App() {
   useEffect(() => {
     localStorage.setItem(KEY_ID, JSON.stringify(todos));
   }, [todos]);
+
+  const dragStart = (e, position) => {
+    dragTodo.current = position;
+  }
+
+  const dragEnter = (e, position) => {
+    dragOverTodo.current = position;
+  }
 
   const toggleTodo = (id) => {
     const newTodos = [...todos]
@@ -56,7 +65,7 @@ function App() {
     <div className='block'>
       <h1>Simply Todos</h1>
       <AddItem handleAddTodo={handleAddTodo} handleEnterTodo={handleEnterTodo} todoNameRef={todoNameRef} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} dragTodo={dragTodo} dragStart={dragStart} dragEnter={dragEnter} />
       <Clear todos={todos} handleClearTodos={handleClearTodos} />
     </div>
   )

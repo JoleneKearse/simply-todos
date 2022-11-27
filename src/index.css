@@ -71,6 +71,7 @@ li {
   background-color: #B3FFAB; 
   border-radius: .25em;
   box-shadow: .1rem .15rem .25rem #42B7A899;
+  cursor: grab;
 }
 
 input[type="checkbox"] {
@@ -78,6 +79,7 @@ input[type="checkbox"] {
   appearance: none;
   background-color: #fff;
   margin: 0;
+  cursor: pointer;
 }
 
 /* ********* LAYOUT ********* */
