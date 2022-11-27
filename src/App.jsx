@@ -8,7 +8,9 @@ const KEY_ID = 'todoslist';
 
 function App() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(KEY_ID)) || []);
+  // variable to hold ref to input
   const todoNameRef = useRef();
+
 
   // to load on refresh
   useEffect(() => {
@@ -43,7 +45,6 @@ function App() {
     if (e.key == 'Enter') {
       handleAddTodo(e);
     }
-
   }
 
   const handleClearTodos = () => {
