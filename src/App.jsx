@@ -41,13 +41,7 @@ function App() {
   const handleEnterTodo = (e) => {
     if (e.key != 'Enter') return
     if (e.key == 'Enter') {
-      const name = todoNameRef.current.value;
-      if (name === '') return
-      setTodos(prevTodos => {
-        return [...prevTodos, { id: uuidv4(), name: name, complete: false }];
-      })
-      // reset input field
-      todoNameRef.current.value = null;
+      handleAddTodo(e);
     }
 
   }
