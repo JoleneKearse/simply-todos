@@ -8,7 +8,12 @@ const Todo = ({ todo, toggleTodo }) => {
   return (
     <div className='todolist'>
       <li>
-        <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
+        <input
+          type="checkbox"
+          checked={todo.complete}
+          onChange={handleTodoClick}
+          draggable
+        />
         {todo.name}
       </li>
     </div>

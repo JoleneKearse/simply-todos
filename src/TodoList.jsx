@@ -1,20 +1,29 @@
-import React, { useRef } from 'react';
-import Todo from './Todo';
+import React from 'react';
 
-const TodoList = ({ todos, toggleTodo, dragTodo, dragStart, dragEnter }) => {
+const TodoList = ({ todos, toggleTodo, dragStart, dragEnter, dropTodo }) => {
   return (
     <ul className='block'>
-      {todos.map((todo, index) => {
-        return <Todo 
-          key={todo.id} 
-          todo={todo} 
-          toggleTodo={toggleTodo} 
-          dragTodo={dragTodo} 
-          dragStart={(e) => dragStart(e, index)} 
-          dragEnter={(e) => dragEnter(e, index)} 
-          draggable
-        />
-      })}
+      {
+        todos &&
+        todos.map((todo, key) => (
+          <li
+            className='todolist'
+            key={todo.id}
+            todo={todo}
+            toggleTodo={toggleTodo}
+            onDragStart={(e) => dragStart(e, key)}
+            onDragEnter={(e) => dragEnter(e, key)}
+            onDragEnd={dropTodo}
+          >
+            <input
+              type="checkbox"
+              checked={todo.complete}
+              onChange={handleTodoClick}
+              draggable
+            />
+            {todo.name}
+          </li>
+        ))}
     </ul>
   )
 }
